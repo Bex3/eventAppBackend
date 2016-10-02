@@ -142,6 +142,7 @@ public class DemoApplicationTests {
 		Event retEvent = events.findOne(testingEvent.id);
 
 
+
 		retEvent.name = "Under the sea adventures";
 		retEvent.location = "Atlantis";
 		retEvent.dateAndTime = "12/13/2016 ~ 3:00 AM";

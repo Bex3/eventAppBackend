@@ -261,8 +261,6 @@ public class EventJsonController {
         return wannabeFriendList;
     }
 
-
-
 //    @RequestMapping(path = "/usersAtEvent.json", method = RequestMethod.POST)
 //    public ArrayList<User> attendingEvent(HttpSession session) throws Exception{
 ////        User user = (User) session.getAttribute("user");

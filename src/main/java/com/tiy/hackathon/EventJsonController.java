@@ -317,7 +317,8 @@ public class EventJsonController {
         return myEvent;
     }
 
-    @RequestMapping(path = "/getListOfAllAtEvent", method = RequestMethod.GET)
+    @RequestMapping(path = "/getListOfAllAtEvent.json", method = RequestMethod.GET)
+    //need to put in a method for specific event
     public AttendingResponseContainer getListOfAttending() {
         AttendingResponseContainer myResponse = new AttendingResponseContainer();
         Iterable<AttendingEvents> allAttending = attendingEvents.findAll();
@@ -326,5 +327,14 @@ public class EventJsonController {
         }
         return myResponse;
     }
-
+//
+//    @RequestMapping(path = "/getListOfAllPeople.json", method = RequestMethod.GET)
+//    public AttendingResponseContainer getListOfAllPeople() {
+//        AttendingResponseContainer myResponse = new AttendingResponseContainer();
+//        Iterable<AttendingEvents> allAttending = attendingEvents.findAll();
+//        for (AttendingEvents myAttendance : allAttending) {
+//            myResponse.myEvents.add(myAttendance);
+//        }
+//        return myResponse;
+//    }
 }

@@ -10,6 +10,9 @@ angular.module('EventApp', [])
     $scope.checkInMaster;
     $scope.checkInList = {};
     $scope.event;
+    $scope.users = {};
+    $scope.usersList = {};
+//    $scope.usersAttending ={};
 
     $scope.createUser = function () {
         console.log("about to create user");
@@ -117,5 +120,21 @@ angular.module('EventApp', [])
          console.log("Done with the callback");
     };
 
+    $scope.getListOfAttendees = function() {
+        console.log("About to get all of the users");
+        $http.get("/allUsers.json")
+        .then(
+            function successCallBack(response) {
+                console.log(response.data);
+                console.log("retrieving users at event...");
+                $scope.usersList = response.data;
+//                $scope.usersAttending = $scope.usersList;
+                console.log($scope.usersList);
+            },
+            function errorCallBack(response) {
+                console.log("Unable to retrieve event");
+            });
+         console.log("Done with the callback");
+    };
 
 });

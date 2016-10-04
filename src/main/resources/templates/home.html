@@ -48,10 +48,16 @@
             <td><input type="submit" ng-click="attendingEvent(event)" value="Attending Event"/></td>
         </tr>
     </table>
+</div>
 
 
-
-
+<div ng-if="myUser!=null">
+<input type="submit" ng-click="getListOfAttendees()" value="Get people in the database"/>
+    <table>
+        <tr ng-repeat="user in usersList">
+           <td> {{user.displayName}}</td>
+        </tr>
+    </table>
 </div>
 
 </body>

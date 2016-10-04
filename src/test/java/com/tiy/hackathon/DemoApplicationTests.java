@@ -271,13 +271,13 @@ public class DemoApplicationTests {
 		User userIntiatiated = new User();
 		User userContacted = new User();
 
-		userIntiatiated.email = "hbemd@gmail.com";
-		userIntiatiated.displayName = "dehmpc";
+		userIntiatiated.email = "1hbemd@gmail.com";
+		userIntiatiated.displayName = "1dehmpc";
 		userIntiatiated.password = "jb";
 		users.save(userIntiatiated);
 
-		userContacted.email = "trmebtsd@gmail.com";
-		userContacted.displayName = "degd3br";
+		userContacted.email = "1trmebtsd@gmail.com";
+		userContacted.displayName = "1degd3br";
 		userContacted.password = "chibbs";
 		users.save(userContacted);
 
@@ -295,7 +295,7 @@ public class DemoApplicationTests {
 		Contacts thisContact = contacts.findOne(testContact.id);
 
 //		assertTrue(thisContact.giveInfo);
-		assertTrue(thisContact.status == "APPROVED");
+		assertTrue(thisContact.status.equals("APPROVED"));
 
 		contacts.delete(testContact);
 		users.delete(userIntiatiated);
@@ -308,13 +308,13 @@ public class DemoApplicationTests {
 		User userIntiatiated = new User();
 		User userContacted = new User();
 
-		userIntiatiated.email = "binrads@gmail.com";
-		userIntiatiated.displayName = "poppers";
+		userIntiatiated.email = "1binrads@gmail.com";
+		userIntiatiated.displayName = "2poppers";
 		userIntiatiated.password = "jb";
 		users.save(userIntiatiated);
 
-		userContacted.email = "shdbow@gmail.com";
-		userContacted.displayName = "spizzar";
+		userContacted.email = "1shdbow@gmail.com";
+		userContacted.displayName = "2spizzar";
 		userContacted.password = "chibbs";
 		users.save(userContacted);
 
@@ -331,7 +331,7 @@ public class DemoApplicationTests {
 
 		Contacts thisContact = contacts.findOne(testContact.id);
 
-		assertFalse(thisContact.status == "DENIED");
+		assertTrue(thisContact.status.equals("DENIED"));
 
 
 		contacts.delete(testContact);
@@ -344,13 +344,13 @@ public class DemoApplicationTests {
 		User userIntiatiated = new User();
 		User userContacted = new User();
 
-		userIntiatiated.email = "testermc@gmail.com";
-		userIntiatiated.displayName = "testy";
+		userIntiatiated.email = "1testermc@gmail.com";
+		userIntiatiated.displayName = "1testy";
 		userIntiatiated.password = "geez";
 		users.save(userIntiatiated);
 
-		userContacted.email = "iyao@gmail.com";
-		userContacted.displayName = "gah";
+		userContacted.email = "1iyao@gmail.com";
+		userContacted.displayName = "2gah";
 		userContacted.password = "usthesedays";
 		users.save(userContacted);
 
@@ -367,7 +367,7 @@ public class DemoApplicationTests {
 
 		Contacts thisContact = contacts.findOne(testContact.id);
 
-		assertTrue(thisContact.status == "PENDING_APPROVAL");
+		assertTrue(thisContact.status.equals("PENDING_APPROVAL"));
 
 
 		contacts.delete(testContact);

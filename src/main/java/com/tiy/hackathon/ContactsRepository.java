@@ -2,6 +2,7 @@ package com.tiy.hackathon;
 
 import org.springframework.data.repository.CrudRepository;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import java.util.List;
  */
 public interface ContactsRepository extends CrudRepository<Contacts, Integer> {
 //   ArrayList<Contacts> findByUser(User user);
-   ArrayList<Contacts> findByInitialContact(User user);
+    ArrayList<Contacts> findByInitialContact(User initialContact);
     ArrayList<Contacts> findByContacted(User user);
+    ArrayList<Contacts>findByInitialContactAndContacted(User initialContact, User contacted);
+
 }

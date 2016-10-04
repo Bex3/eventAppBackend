@@ -282,8 +282,8 @@ public class DemoApplicationTests {
 		users.save(userContacted);
 
 
-		Contacts testContact = new Contacts(userIntiatiated, userContacted);
-		testContact.giveInfo = true;
+		Contacts testContact = new Contacts(userIntiatiated, userContacted, "APPROVED");
+//		testContact.status = "APPROVED";
 		contacts.save(testContact);
 
 		Iterable <Contacts> contactsFound =  contacts.findByInitialContact(userIntiatiated);
@@ -294,8 +294,8 @@ public class DemoApplicationTests {
 
 		Contacts thisContact = contacts.findOne(testContact.id);
 
-		assertTrue(thisContact.giveInfo);
-
+//		assertTrue(thisContact.giveInfo);
+		assertTrue(thisContact.status == "APPROVED");
 
 		contacts.delete(testContact);
 		users.delete(userIntiatiated);
@@ -319,8 +319,8 @@ public class DemoApplicationTests {
 		users.save(userContacted);
 
 
-		Contacts testContact = new Contacts(userIntiatiated, userContacted);
-		testContact.giveInfo = false;
+		Contacts testContact = new Contacts(userIntiatiated, userContacted, "DENIED");
+//		testContact.status = "DENIED";
 		contacts.save(testContact);
 
 		Iterable <Contacts> contactsFound =  contacts.findByInitialContact(userIntiatiated);
@@ -331,7 +331,7 @@ public class DemoApplicationTests {
 
 		Contacts thisContact = contacts.findOne(testContact.id);
 
-		assertFalse(thisContact.giveInfo);
+		assertFalse(thisContact.status == "DENIED");
 
 
 		contacts.delete(testContact);
@@ -355,7 +355,7 @@ public class DemoApplicationTests {
 		users.save(userContacted);
 
 
-		Contacts testContact = new Contacts(userIntiatiated, userContacted);
+		Contacts testContact = new Contacts(userIntiatiated, userContacted, "PENDING_APPROVAL");
 //		ensuring it auto sets boolean to false
 		contacts.save(testContact);
 
@@ -367,7 +367,7 @@ public class DemoApplicationTests {
 
 		Contacts thisContact = contacts.findOne(testContact.id);
 
-		assertFalse(thisContact.giveInfo);
+		assertTrue(thisContact.status == "PENDING_APPROVAL");
 
 
 		contacts.delete(testContact);
@@ -415,11 +415,11 @@ public class DemoApplicationTests {
 		users.save(userInt);
 
 
-		Contacts testContact = new Contacts(userInt, user1);
-		Contacts testContact2 = new Contacts(userInt, user2);
-		Contacts testContact3 = new Contacts(userInt, user3);
-		Contacts testContact4 = new Contacts(userInt, user4);
-		Contacts testContact5 = new Contacts(userInt, user5);
+		Contacts testContact = new Contacts(userInt, user1, "PENDING_APPROVAL");
+		Contacts testContact2 = new Contacts(userInt, user2, "PENDING_APPROVAL");
+		Contacts testContact3 = new Contacts(userInt, user3, "PENDING_APPROVAL");
+		Contacts testContact4 = new Contacts(userInt, user4, "PENDING_APPROVAL");
+		Contacts testContact5 = new Contacts(userInt, user5, "PENDING_APPROVAL");
 		contacts.save(testContact);
 		contacts.save(testContact2);
 		contacts.save(testContact3);
@@ -492,11 +492,11 @@ public class DemoApplicationTests {
 		users.save(userInt);
 
 
-		Contacts testContact = new Contacts(userInt, user1);
-		Contacts testContact2 = new Contacts(user2, user1);
-		Contacts testContact3 = new Contacts(user3, user1);
-		Contacts testContact4 = new Contacts(user4, user1);
-		Contacts testContact5 = new Contacts(user5, user1);
+		Contacts testContact = new Contacts(userInt, user1, "PENDING_APPROVAL");
+		Contacts testContact2 = new Contacts(user2, user1, "APPROVED");
+		Contacts testContact3 = new Contacts(user3, user1, "DENIED");
+		Contacts testContact4 = new Contacts(user4, user1, "PENDING_APPROVAL");
+		Contacts testContact5 = new Contacts(user5, user1, "DENIED");
 		contacts.save(testContact);
 		contacts.save(testContact2);
 		contacts.save(testContact3);

@@ -14,14 +14,15 @@ public class Contacts {
 	@GeneratedValue
 	int id;
 
-	@ManyToOne
+	@OneToOne
 	User initialContact;
 
-	@ManyToOne
+	@OneToOne
 	User contacted;
 
 	@Column(nullable = false)
-	boolean giveInfo;
+//	boolean giveInfo;
+	String status; //PENDING_APPROVAL, APPROVED, DENIED
 
 	public int getId() {
 		return id;
@@ -47,18 +48,18 @@ public class Contacts {
 		this.contacted = contacted;
 	}
 
-	public boolean isGiveInfo() {
-		return giveInfo;
-	}
+//	public boolean isGiveInfo() {
+//		return giveInfo;
+//	}
+//
+//	public void setGiveInfo(boolean giveInfo) {
+//		this.giveInfo = giveInfo;
+//	}
 
-	public void setGiveInfo(boolean giveInfo) {
-		this.giveInfo = giveInfo;
-	}
-
-	public Contacts(User initialContact, User contacted) {
+	public Contacts(User initialContact, User contacted, String status) {
 		this.initialContact = initialContact;
 		this.contacted = contacted;
-		this.giveInfo = false;
+		this.status = status;
 	}
 
 	public Contacts() {

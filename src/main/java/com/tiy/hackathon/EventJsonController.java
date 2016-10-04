@@ -195,7 +195,7 @@ public class EventJsonController {
 
         if (user != null) {
             for (Contacts currentFriend : allContacts) {
-                if (currentFriend.giveInfo == true)
+                if (currentFriend.status == "APPROVED")
                     friendList.add(currentFriend);
             }
         }
